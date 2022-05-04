@@ -45,10 +45,23 @@ services:
     depends_on:
       - db
     networks:
+      - frontback
       - backdb
+
+  frontend:
+    image: norberttalpos/ev-charger-app-frontend:latest
+    container_name: ev-charger-app-frontend
+    ports:
+      - 8081:8080
+    depends_on:
+      - backend
+    networks:
+      - frontback
 
 networks:
   backdb:
+    driver: bridge
+  frontback:
     driver: bridge
 
 volumes:
