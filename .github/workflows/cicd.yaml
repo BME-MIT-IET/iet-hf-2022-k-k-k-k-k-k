@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - fix_cicd
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -40,7 +41,6 @@ jobs:
   docker_build_push:
     needs: sonar
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v2
         name: Check out code
