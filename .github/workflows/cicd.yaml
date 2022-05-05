@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - cypress
   pull_request:
     types: [opened, synchronize, reopened]
 
