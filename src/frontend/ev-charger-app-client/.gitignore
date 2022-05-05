@@ -24,3 +24,5 @@ pnpm-debug.log*
 *.sw?
 
 /key.js
+
+package-lock.json
