@@ -33,6 +33,7 @@ build/
 .vscode/
 
 application.properties
+node_modules
 
 src/frontend/ev-charger-app-client/node_modules
 src/frontend/ev-charger-app-client/.vscode
