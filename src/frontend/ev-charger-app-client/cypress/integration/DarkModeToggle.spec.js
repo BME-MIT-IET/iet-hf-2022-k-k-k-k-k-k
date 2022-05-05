@@ -1,5 +1,5 @@
 import { mount } from '@cypress/vue'
-import DarkModeToggle from './DarkModeToggle.vue'
+import DarkModeToggle from "../../src/components/DarkModeToggle";
 
 describe('HelloWorld', () => {
   it('renders a message', () => {

@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - cypress
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -38,10 +37,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B package -DskipTests org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=BME-MIT-IET_iet-hf-2022-k-k-k-k-k-k
   
-  dokcer_build_push:
+  docker_build_push:
     needs: sonar
     runs-on: ubuntu-latest
-
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     steps:
       - uses: actions/checkout@v2
         name: Check out code

@@ -31,7 +31,7 @@
             </v-layout>
         </v-card>
 
-        <v-card v-else :class="`details pa-8  ${this.$vuetify.theme.dark ? 'background-purple' : 'background-green'}`">
+        <v-card v-else style="top: 53%" :class="`details pa-8 ${this.$vuetify.theme.dark ? 'background-purple' : 'background-green'}`">
             <div class="zoom-out">
                 <div>
                     <strong style="font-size: 40px;">
