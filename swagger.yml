@@ -7,6 +7,7 @@ info:
   contact:
     name: Adja
 host: localhost:8080
+
 basePath: /
 tags:
   - name: Charger
