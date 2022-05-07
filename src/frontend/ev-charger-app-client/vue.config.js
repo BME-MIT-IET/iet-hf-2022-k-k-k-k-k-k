@@ -1,5 +1,5 @@
 module.exports = {
-  transpileDependencies: ["vuetify", "@vue/reactivity"],
+  transpileDependencies: ["vuetify"],
   devServer: {
     disableHostCheck: true,
     host: "0.0.0.0",
