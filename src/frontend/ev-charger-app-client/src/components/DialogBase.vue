@@ -10,8 +10,8 @@
             v-model="tabidx"
             @change="tabidxChanged"
         >
-            <v-tab v-for="i in tabItems" :key="i">
-                {{ i }}
+            <v-tab  v-for="(item, index) in tabItems" :key="index">
+                {{ item }}
             </v-tab>
         </v-tabs>
 
