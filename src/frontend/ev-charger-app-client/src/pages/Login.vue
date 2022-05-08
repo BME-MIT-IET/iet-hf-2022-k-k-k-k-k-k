@@ -9,6 +9,8 @@
                     <v-row>
                         <v-col cols="12">
                             <v-text-field
+                                id="v_username"
+
                                 v-model="username"
                                 label="Username"
                                 @keyup.enter="login"
@@ -21,6 +23,7 @@
                     <v-row>
                         <v-col cols="12">
                             <v-text-field
+                                id="v_password"
                                 v-model="password"
                                 :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                                 label="Password"
@@ -128,7 +131,7 @@ export default {
             }
             catch(error) {
                 this.loginSnackbar = true;
-                this.snackbarText = 'Please enter your valid username and password';
+                this.snackbarText = 'Failed login in: enter your valid username and password';
             }
         },
         navigate_to_sign_up(){
