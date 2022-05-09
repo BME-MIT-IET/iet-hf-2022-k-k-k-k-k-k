@@ -37,6 +37,6 @@
 		"vue-template-compiler": "^2.6.11",
 		"vue2-google-maps": "^0.10.7",
 		"vuetify-loader": "^1.7.0",
-		"webpack": "^4.46.0"
+		"webpack": "^5.72.0"
 	}
 }
