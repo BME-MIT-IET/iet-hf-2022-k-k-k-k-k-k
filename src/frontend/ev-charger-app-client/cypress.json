@@ -1,6 +1,9 @@
 {
     "testFiles": "**/*.spec.js",
     "componentFolder": "src",
-    "integrationFolder": "src/components"
+    "experimentalFetchPolyfill": true,
+    "baseUrl": "http://localhost:8081"
+
+
 
   }
