@@ -36,9 +36,9 @@ public class ChargingStationService extends AbstractService<ChargingStation, Cha
 
     @Override
     protected ChargingStation mapToEntity(ChargingStation persisted, ChargingStation dto) {
-        dto.setChargers(persisted.getChargers().stream().filter(charger -> {
-            return dto.getChargers().contains(charger) || charger.getCurrentlyChargingCar() != null;
-        }).collect(Collectors.toList()));
+        dto.setChargers(persisted.getChargers().stream().filter(charger ->
+                        dto.getChargers().contains(charger) || charger.getCurrentlyChargingCar() != null
+                ).collect(Collectors.toList()));
 
         return dto;
     }

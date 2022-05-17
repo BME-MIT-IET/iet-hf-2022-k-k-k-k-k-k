@@ -44,12 +44,12 @@ public class MockElectricCarHandler extends Thread {
 
     @Override
     public void run() {
-        if(EvChargerAppServerApplication.charging) {
+        if(EvChargerAppServerApplication.CHARGING) {
             while(true) {
                 try {
                     Thread.sleep(this.pollInterval);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    this.interrupt();
                 }
 
                 synchronized (lockObj) {
@@ -103,10 +103,8 @@ public class MockElectricCarHandler extends Thread {
     @EventListener(ContextRefreshedEvent.class)
     public void startUp() {
 
-        Collection<ElectricCar> cars = this.electricCarService.getAll();
-        cars.forEach(car -> {
-            this.cars.add(new MockElectricCarRepresentationImpl(car));
-        });
+        Collection<ElectricCar> persitedCars = this.electricCarService.getAll();
+        persitedCars.forEach(car -> this.cars.add(new MockElectricCarRepresentationImpl(car)));
 
         this.start();
     }

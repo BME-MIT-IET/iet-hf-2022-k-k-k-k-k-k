@@ -54,7 +54,7 @@ public class NotificationService extends AbstractService<Notification, Notificat
 
             NotificationFilter alreadyExistingNotificationFilter = new NotificationFilter(entity.getPersonToNotifyId(), entity.getObservedChargerId());
 
-            if(this.search(alreadyExistingNotificationFilter).size() > 0)
+            if(!this.search(alreadyExistingNotificationFilter).isEmpty())
                 return false;
 
             return person.getEmail() != null && charger.getCurrentlyChargingCar() != null;

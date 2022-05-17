@@ -62,7 +62,6 @@ public class MockElectricCarRepresentationImpl implements MockElectricCarReprese
 
         if(changed) {
             this.lastChange = LocalDateTime.now();
-            // System.out.println(this.id + ": interval: " + timeElapsedMillis + ", percentage: " + this.batteryPercentage);
         }
         return changed;
     }
@@ -94,7 +93,7 @@ public class MockElectricCarRepresentationImpl implements MockElectricCarReprese
         double fullToZeroDischargeTime = (double) this.batteryCapacity / (double) this.disChargingSpeed * 3600 * 1000;
         double interval = fullToZeroDischargeTime / 100.0;
 
-        if(EvChargerAppServerApplication.charging) {
+        if(EvChargerAppServerApplication.CHARGING) {
             interval /= 10;
         }
         return (long) interval;
@@ -105,7 +104,7 @@ public class MockElectricCarRepresentationImpl implements MockElectricCarReprese
         double zeroToFullChargeTime = (double) this.batteryCapacity / (double) speed * 3600 * 1000;
         double interval = zeroToFullChargeTime / 100.0;
 
-        if(EvChargerAppServerApplication.charging) {
+        if(EvChargerAppServerApplication.CHARGING) {
             interval /= 10;
         }
         return (long) interval;

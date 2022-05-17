@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        if(EvChargerAppServerApplication.jwtEnabled) {
+        if(EvChargerAppServerApplication.JWT_ENABLED) {
             http.cors().and().authorizeRequests().antMatchers(
                     "/api/login/**",
                     "/api/token/refresh",
