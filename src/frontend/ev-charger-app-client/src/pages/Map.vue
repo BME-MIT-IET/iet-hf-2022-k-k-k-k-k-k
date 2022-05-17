@@ -15,6 +15,7 @@
                 v-for="(c, index) in chargingStations"
                 :key="index"
                 :ref="`marker${index}`"
+                :id="`gmarker${index}`"
                 :position="{lat: c.location.coordinates.latitude, lng: c.location.coordinates.longitude}"
                 :clickable="true"
                 :icon="icon"

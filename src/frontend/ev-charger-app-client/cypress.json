@@ -1,6 +1,9 @@
 {
-    "component": {
-      "componentFolder": "src",
-      "testFiles": "**/*.spec.js"
-    }
+    "testFiles": "**/*.spec.js",
+    "componentFolder": "src",
+    "experimentalFetchPolyfill": true,
+    "baseUrl": "http://localhost:8081"
+
+
+
   }

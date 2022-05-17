@@ -1,6 +1,6 @@
 <template>
     <v-card max-width="400">
-        <v-card-title class="text-h5 darkprimary" style="color: white; ">
+        <v-card-title class="text-h5 darkprimary" style="color: red; ">
             {{ title }}
         </v-card-title>
 
@@ -10,8 +10,8 @@
             v-model="tabidx"
             @change="tabidxChanged"
         >
-            <v-tab v-for="i in tabItems" :key="i">
-                {{ i }}
+            <v-tab  v-for="(item, index) in tabItems" :key="index">
+                {{ item }}
             </v-tab>
         </v-tabs>
 
