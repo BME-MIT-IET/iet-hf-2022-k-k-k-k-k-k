@@ -144,9 +144,13 @@ public class ElectricCarService extends AbstractService<ElectricCar, ElectricCar
 
     @Transactional(isolation = Isolation.REPEATABLE_READ)
     public void persistBatteryPercentageChanges(Long carId, Integer batteryPercentage) {
-        Optional<ElectricCar> electricCar = this.repository.findById(carId);
-        electricCar.get().setBatteryPercentage(batteryPercentage);
+        Optional<ElectricCar> electricCarOptional = this.repository.findById(carId);
 
-        this.repository.save(electricCar.get());
+        if(electricCarOptional.isPresent()) {
+            var electricCar = electricCarOptional.get();
+            electricCar.setBatteryPercentage(batteryPercentage);
+
+            this.repository.save(electricCar);
+        }
     }
 }

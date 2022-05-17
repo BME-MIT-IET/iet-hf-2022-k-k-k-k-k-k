@@ -24,7 +24,11 @@ public class GeometryUtil {
     public static Point parseLocation(double longitude, double latitude) {
         Geometry geometry = GeometryUtil.wktToGeometry(String.format("POINT (%s %s)", longitude, latitude));
         Point p =(Point)geometry;
-        p.setSRID(4326);
+
+        if(p != null) {
+            p.setSRID(4326);
+        }
+
         return p;
     }
 }
