@@ -9,7 +9,9 @@
 	},
 	"dependencies": {
 		"axios": "^0.23.0",
-		"core-js": "^3.19.1",
+		"core-js": "^3.6.5",
+		"eslint-plugin-cypress": "^2.12.1",
+		"register-service-worker": "^1.7.1",
 		"sockjs-client": "^1.5.2",
 		"vue": "^2.6.11",
 		"vue-axios": "^3.4.0",
@@ -17,26 +19,34 @@
 		"vue-router": "^3.5.3",
 		"vuetify": "^2.5.14",
 		"vuex": "^3.4.0",
-		"webstomp-client": "^1.2.6",
-		"@cypress/vue": "^3.1.2",
-		"@cypress/webpack-dev-server": "^1.8.4",
-		"cypress": "^9.6.0"
+		"webstomp-client": "^1.2.6"
 	},
 	"devDependencies": {
-		"@vue/cli-plugin-babel": "^4.5.15",
+		"@cypress/vue": "^2.2.1",
+		"@cypress/webpack-dev-server": "^1.1.5",
+		"@vue/cli-plugin-babel": "~4.5.12",
 		"@vue/cli-plugin-eslint": "^4.5.15",
-		"@vue/cli-plugin-router": "^4.5.15",
+		"@vue/cli-plugin-pwa": "~4.5.12",
+		"@vue/cli-plugin-router": "^5.0.4",
 		"@vue/cli-plugin-vuex": "^4.5.15",
-		"@vue/cli-service": "^4.5.15",
+		"@vue/cli-service": "~4.5.12",
 		"babel-eslint": "^10.1.0",
+		"cypress": "^7.2.0",
+		"cypress-localstorage-commands": "^1.7.0",
 		"eslint": "^6.7.2",
+		"eslint-plugin-cypress": "^2.10.3",
 		"eslint-plugin-vue": "^6.2.2",
+		"html-webpack-plugin": "4",
 		"sass": "~1.32.0",
 		"sass-loader": "^10.0.0",
-		"vue-cli-plugin-vuetify": "^2.4.3",
+		"vue-cli-plugin-vuetify": "~2.4.0",
 		"vue-template-compiler": "^2.6.11",
 		"vue2-google-maps": "^0.10.7",
-		"vuetify-loader": "^1.7.0",
-		"webpack": "^4.46.0"
+		"vuetify-loader": "^1.7.0"
+	},
+	"eslintConfig": {
+		"extends": [
+			"plugin:cypress/recommended"
+		]
 	}
 }
