@@ -91,7 +91,11 @@ public class ChargerService extends AbstractService<Charger, ChargerFilter, Char
                 return false;
             }
             else {
-                ElectricCar car = this.electricCarRepository.findById(carId).get();
+               
+                Optional<ElectricCar> carOptional = this.electricCarRepository.findById(carId);
+
+                if(carOptional.isEmpty()) throw new NotValidUpdateException("");
+                ElectricCar car = carOptional.get();
 
                 if(!car.getCarType().getCompatibleChargerTypes().contains(charger.getChargerType())) {
                     return false;
