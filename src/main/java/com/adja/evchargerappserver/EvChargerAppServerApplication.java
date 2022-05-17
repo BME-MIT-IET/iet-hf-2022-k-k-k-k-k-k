@@ -1,7 +1,5 @@
 package com.adja.evchargerappserver;
 
-import com.adja.evchargerappserver.api.NotValidUpdateException;
-import com.adja.evchargerappserver.api.person.Person;
 import com.adja.evchargerappserver.api.person.PersonService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,9 +13,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class EvChargerAppServerApplication {
 
-	public static final boolean jwtEnabled = true;
-	public static final boolean charging = true;
-	public static final boolean sendMails = true;
+	public static final boolean JWT_ENABLED = true;
+	public static final boolean CHARGING = true;
+	public static final boolean SEND_MAILS = false;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EvChargerAppServerApplication.class, args);

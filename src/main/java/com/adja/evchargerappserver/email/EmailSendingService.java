@@ -19,7 +19,7 @@ public class EmailSendingService {
 
 
     private void sendMail(SimpleMailMessage mailMessage) {
-        if(!EvChargerAppServerApplication.sendMails)
+        if(!EvChargerAppServerApplication.SEND_MAILS)
             return;
         javaMailSender.send(mailMessage);
     }

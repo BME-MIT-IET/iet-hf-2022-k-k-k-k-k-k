@@ -7,6 +7,8 @@ import org.locationtech.jts.io.WKTReader;
 
 public class GeometryUtil {
 
+    private GeometryUtil() {}
+
     public static final int SRID = 4326; //LatLng
     private static final WKTReader wktReader = new WKTReader();
 
