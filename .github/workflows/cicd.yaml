@@ -40,9 +40,6 @@ jobs:
 
   cypress-run:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./src/frontend/ev-charger-app-client/
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -51,9 +48,10 @@ jobs:
         with:
           build: npm run build
           start: npm start
+          working-directory: ./src/frontend/ev-charger-app-client/
 
   docker_build_push:
-    needs: sonar
+    needs: [sonar, cypress-run]
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     steps:
