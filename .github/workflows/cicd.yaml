@@ -43,6 +43,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Add google maps api key secret js file
+        env:
+          GOOGLE_MAPS_API_KEY_JS: ${{ secrets.GOOGLE_MAPS_API_KEY_JS }}
+        run: |
+          touch ./src/frontend/ev-charger-app-client/key.js
+          echo $GOOGLE_MAPS_API_KEY_JS > ./src/frontend/ev-charger-app-client/key.js
       - name: Add package-lock.json
         working-directory: ./src/frontend/ev-charger-app-client/
         run: npm i --package-lock-only
