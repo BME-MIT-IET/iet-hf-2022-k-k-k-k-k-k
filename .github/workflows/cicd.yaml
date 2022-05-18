@@ -10,7 +10,6 @@ on:
 
 jobs:
   sonar:
-    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -56,7 +55,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
-          start: npm start
+          start: npm run serve
           working-directory: ./src/frontend/ev-charger-app-client/
 
   docker_build_push:
