@@ -43,6 +43,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Add package-lock.json
+        working-directory: ./src/frontend/ev-charger-app-client/
+        run: npm i --package-lock-only
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
