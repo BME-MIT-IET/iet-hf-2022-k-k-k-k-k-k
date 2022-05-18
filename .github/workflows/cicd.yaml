@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - cypress-ci
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -36,7 +37,21 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B package -DskipTests org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=BME-MIT-IET_iet-hf-2022-k-k-k-k-k-k
-  
+
+  cypress-run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src/frontend/ev-charger-app-client/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
+
   docker_build_push:
     needs: sonar
     runs-on: ubuntu-latest
