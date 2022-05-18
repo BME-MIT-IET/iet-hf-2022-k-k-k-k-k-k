@@ -17,8 +17,27 @@ describe("ToltoSCH Happy Path", () => {
 
     cy.get(".v-btn.v-btn--rounded").click({ force: true });
 
+    let fakeMockLocation;
+    cy.fixture("location.json").as("fakeLocation");
+    cy.get("@fakeLocation").then((fakeLocation) => {
+      fakeMockLocation = fakeLocation;
+    });
+    cy.wait(1000);
+
+    Cypress.Commands.add("mockGeolocation", (_) => {
+      cy.window().then(($window) => {
+        cy.stub(
+          $window.navigator.geolocation,
+          "getCurrentPosition",
+          (callback) => {
+            return callback(fakeMockLocation);
+          }
+        );
+      });
+    });
+    cy.mockGeolocation();
+
     //TODO ADD FAKE STUB CHROME LOCATION ENABLING
-    // cy.fixture("location.json").as("fakeLocation");
     // cy.get("@fakeLocation").then((fakeLocation) => {
     //   cy.visit("/map", {
     //     onBeforeLoad(win) {
