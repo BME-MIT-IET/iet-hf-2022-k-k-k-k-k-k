@@ -10,10 +10,43 @@ Here is the recorded [video of the Happy path](https://github.com/BME-MIT-IET/ie
 
 And for library version problems, I hooked up the dependabot, which is essential for a longer project to automatically detect problems with each external library and provide update suggestions to keep the project up-to-date.
 
-For the webapp, I tried out the Chrome supported Lighthouse:
->Lighthouse is an open-source, automated tool for improving the quality of web pages. You can run it against any web page, public or requiring authentication. It has audits for performance, accessibility, progressive web apps, SEO and more.
 
->You can run Lighthouse in Chrome DevTools, from the command line, or as a Node module. You give Lighthouse a URL to audit, it runs a series of audits against the page, and then it generates a report on how well the page did. From there, use the failing audits as indicators on how to improve the page. Each audit has a reference doc explaining why the audit is important, as well as how to fix it.
+Cypress testing:
 
-Our result:
-![image](https://user-images.githubusercontent.com/55052220/168973403-4ce5d054-f6fe-4ac4-b028-ddd716236dc0.png)
+## Integration tests
+
+Cypress was originally designed to run end-to-end (E2E) tests on anything that runs in a browser. A typical E2E test visits the application in a browser and performs actions via the UI just like a real user would.
+
+### In order to run these cypress tests:
+
+
+```
+npx cypress run
+```
+
+
+these will run all tests (specified in the cypress.json file path will be the path, default is integration folder)
+
+If you only want to run tests from a single spec file and record the results on the Dashboard, the command should be:
+
+```
+npm run cy:run -- --record --spec "cypress/integration/my-spec.js"
+```
+
+For more specific details and command options see the [documentation](https://docs.cypress.io/guides/guides/command-line#How-to-run-commands).
+
+## Component testing
+
+With component testing in Cypress, you can achieve the same goal: test a component in isolation. Instead of having components render inside a terminal, Cypress renders components in a real browser. Since the components you are testing are visible in the browser, this makes it easier to test and debug when a test fails.
+
+### Open Cypress in Component Testing mode:
+```
+npx cypress open-ct
+```
+
+To run all component tests in the terminal, run the command below (or it is possible to add this to our CI pipeline), and it will show you the success and fail rates of your tests:
+```
+npx cypress run-ct
+```
+
+
