@@ -8,10 +8,8 @@ During the integration test I used the happy path approach: Happy-path testing i
 The main functionality of the application is clicked through, and during the component tests I checked the functionality of 1-1 more specific units, such as form validation or the correct operation of the light-darkmode switch. In some cases, this also required modifications to the frontend code, where I defined ids and keys for easier testing.
 Here is the recorded [video of the Happy path](https://github.com/BME-MIT-IET/iet-hf-2022-k-k-k-k-k-k/blob/master/src/frontend/ev-charger-app-client/cypress/videos/Visit.spec.js.mp4).
 
-And for library version problems, I hooked up the dependabot, which is essential for a longer project to automatically detect problems with each external library and provide update suggestions to keep the project up-to-date.
 
-
-Cypress testing:
+# Cypress testing:
 
 ## Integration tests
 
@@ -48,5 +46,17 @@ To run all component tests in the terminal, run the command below (or it is poss
 ```
 npx cypress run-ct
 ```
+
+
+# Dependabot
+
+And for library version problems, I hooked up the dependabot, which is essential for a longer project to automatically detect problems with each external library and provide update suggestions to keep the project up-to-date.
+Here are some recommendation for dependabot dependency updates and scanning alerts:
+![image](https://user-images.githubusercontent.com/55052220/169231238-f89bda57-71e9-4ea0-b080-877fa089b876.png)
+These are the created dependency version bumping branches, which are ready for pull request.
+![image](https://user-images.githubusercontent.com/55052220/169231609-e643b808-98bf-44ed-b09a-3e78a691e32e.png)
+
+
+
 
 
