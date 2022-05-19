@@ -14,6 +14,8 @@ Here is the recorded [video of the Happy path](https://github.com/BME-MIT-IET/ie
 ## Integration tests
 
 Cypress was originally designed to run end-to-end (E2E) tests on anything that runs in a browser. A typical E2E test visits the application in a browser and performs actions via the UI just like a real user would.
+![image](https://user-images.githubusercontent.com/55052220/169235979-9129ce36-4a91-48ac-a7a6-cfbd171f3e36.png)
+
 
 ### In order to run these cypress tests:
 
@@ -31,6 +33,12 @@ If you only want to run tests from a single spec file and record the results on 
 npm run cy:run -- --record --spec "cypress/integration/my-spec.js"
 ```
 
+Or if you would like to see the real behaviour (not only the recorded video)
+
+```
+npx cypress open
+```
+
 For more specific details and command options see the [documentation](https://docs.cypress.io/guides/guides/command-line#How-to-run-commands).
 
 ## Component testing
@@ -38,6 +46,10 @@ For more specific details and command options see the [documentation](https://do
 With component testing in Cypress, you can achieve the same goal: test a component in isolation. Instead of having components render inside a terminal, Cypress renders components in a real browser. Since the components you are testing are visible in the browser, this makes it easier to test and debug when a test fails.
 
 ### Open Cypress in Component Testing mode:
+
+![image](https://user-images.githubusercontent.com/55052220/169235567-c832dc3c-b77b-45bf-9d8e-62ffd56b7840.png)
+
+
 ```
 npx cypress open-ct
 ```
